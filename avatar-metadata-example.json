@@ -1,0 +1,19 @@
+{
+  "camera": {
+    "position": { "x": -2.81956, "y": 105.928, "z": -5.01099 },
+    "direction": { "x": -0.40558, "y": 0.40558, "z": -0.819152 },
+    "fov": 70.0
+  },
+  "aabb": {
+    "min": { "x": -2.19346, "y": 100.01, "z": -1.46947 },
+    "max": { "x": 2.0, "y": 106.298, "z": 2.06118 }
+  },
+  "mtl": "30DAY-cc6c539de7cec1b6d73baaf2e3842abb",
+  "obj": "30DAY-585f7c7ef5dd5c80b86d01b0fe3d37ad",
+  "textures": [
+    "30DAY-14237a3afd75bf6a7d59a367140a3c64",
+    "30DAY-44d07d9743c2feea59f812c80ddebcd3",
+    "30DAY-9cfd91561931a7ba3e7b8beadc4e811e",
+    "30DAY-540decb7e3ff528cfc20ae84e6def2c4"
+  ]
+}
