@@ -13,7 +13,6 @@ import {
   MeshStandardMaterial,
 } from "three";
 
-
 /**
  * I don't know what this stuff does, but it's necessary for the materials to work.
  * I stole it from Roblox's three.js implementation because I'm lazy.
@@ -540,7 +539,7 @@ const ShaderChunk = {
 /**
  * Loads a Wavefront .mtl file specifying materials
  * This is Roblox's implementation of MTLLoader
- * From what I've gathered, it includes a few changes to support Roblox's material system 
+ * From what I've gathered, it includes a few changes to support Roblox's material system
  * and a hash resolver for determining CDN subdomains
  */
 
@@ -579,12 +578,10 @@ class MTLLoader extends Loader {
     loader.setRequestHeader(this.requestHeader);
     loader.setWithCredentials(this.withCredentials);
 
-    console.log("Loading MTL file from " + url);
     loader.load(
       url,
       function (text) {
         try {
-          console.log("text: ", text);
           onLoad(scope.parse(text));
         } catch (e) {
           if (onError) {
@@ -817,7 +814,6 @@ class MaterialCreator {
 
     function resolveURL(baseUrl, url) {
       // ROBLOX: Load assets from CDN.
-      console.log("Resolving URL: ", url);
       let st = 31;
       for (let ii = 0; ii < url.length; ii++) {
         st ^= url[ii].charCodeAt(0);
