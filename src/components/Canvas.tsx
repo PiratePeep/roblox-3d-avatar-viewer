@@ -88,11 +88,11 @@ export function MainCanvas() {
           <div className="h-1/2 w-1/2">
             <Canvas className="rounded-3xl" shadows={true}>
               <Environment background={true} blur={.6} files="/hdrs/puresky.hdr" />
-              <ambientLight intensity={Math.PI / 10} color={0xffffff} />
+              <ambientLight intensity={Math.PI / 15} color={0xffffff} />
               <spotLight
                 position={[40, 100, -10]}
                 penumbra={1}
-                decay={1}
+                decay={10}
                 intensity={.2}
               />
 
