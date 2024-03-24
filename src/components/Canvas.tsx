@@ -1,35 +1,31 @@
 "use client";
 
-import dynamic from "next/dynamic";
-import { Box } from "@/components/Box";
 import React, { useEffect, useRef, Suspense } from "react";
 import { Canvas, useLoader, extend } from "@react-three/fiber";
 import { RGBELoader } from "three/examples/jsm/loaders/RGBELoader.js";
-//import { MTLLoader } from "three/examples/jsm/loaders/MTLLoader.js";
-//import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader.js";
 import * as THREE from "three";
-import { OrbitControls } from "@react-three/drei";
+import { OrbitControls, Environment } from "@react-three/drei";
 import useSWR from "swr";
 import { MTLLoader } from "@/lib/MTLLoader";
 import { OBJLoader } from "@/lib/OBJLoader";
 extend({ RGBELoader, MTLLoader, OBJLoader });
 
 // I'm a dumbass and I could've just used https://github.com/pmndrs/drei#environment
-function Environment() {
-  const hdr = useLoader(
-    RGBELoader,
-    "http://localhost:3000/hdrs/clarens_night_02_4k.hdr",
-    () => {},
-    () => {}
-  );
+// function Environment() {
+//   const hdr = useLoader(
+//     RGBELoader,
+//     "http://localhost:3000/hdrs/clarens_night_02_4k.hdr",
+//     () => {},
+//     () => {}
+//   );
 
-  return (
-    <mesh>
-      <sphereGeometry args={[300, 60, 60]} />
-      <meshPhongMaterial map={hdr} side={THREE.BackSide} />
-    </mesh>
-  );
-}
+//   return (
+//     <mesh>
+//       <sphereGeometry args={[300, 60, 60]} />
+//       <meshPhongMaterial map={hdr} side={THREE.BackSide} />
+//     </mesh>
+//   );
+// }
 
 function Avatar({
   data,
@@ -91,24 +87,14 @@ export function MainCanvas() {
           <h1 className="text-4xl font-bold text-black">3D Avatar Viewer</h1>
           <div className="h-1/2 w-1/2">
             <Canvas className="rounded-3xl" shadows={true}>
-              <Environment />
-              <ambientLight intensity={Math.PI / 2.5} color={0xffefde} />
+              <Environment background={true} blur={.6} files="/hdrs/satara_night_4k.hdr" />
+              <ambientLight intensity={Math.PI / 10} color={0xffffff} />
               <spotLight
                 position={[40, 100, -10]}
-                angle={1.2}
                 penumbra={1}
-                decay={0}
-                intensity={Math.PI}
+                decay={1}
+                intensity={.2}
               />
-              {/*
-  
-        <pointLight
-          position={[-10, -10, -10]}
-          decay={0}
-          intensity={Math.PI}
-        /> */}
-
-              {/* <Box position={[0, 0, 0]} scale={3} /> */}
 
               {data && !isLoading && <Avatar data={data} />}
               <OrbitControls />
