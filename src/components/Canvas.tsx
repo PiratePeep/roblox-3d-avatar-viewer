@@ -87,7 +87,7 @@ export function MainCanvas() {
           <h1 className="text-4xl font-bold text-black">3D Avatar Viewer</h1>
           <div className="h-1/2 w-1/2">
             <Canvas className="rounded-3xl" shadows={true}>
-              <Environment background={true} blur={.6} files="/hdrs/satara_night_4k.hdr" />
+              <Environment background={true} blur={.6} files="/hdrs/puresky.hdr" />
               <ambientLight intensity={Math.PI / 10} color={0xffffff} />
               <spotLight
                 position={[40, 100, -10]}
